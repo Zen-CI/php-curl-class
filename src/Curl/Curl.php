@@ -136,7 +136,7 @@ class Curl
     public function buildPostData($data)
     {
         $binary_data = false;
-        if (is_array($data)) {
+        if (is_array($data) || is_object($data)) {
             // Return JSON-encoded string when the request's content-type is JSON.
             if (isset($this->headers['Content-Type']) &&
                 preg_match($this->jsonPattern, $this->headers['Content-Type'])) {
